@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="simple-http-mirror">
-    <global-element type="http://www.mulesoft.org/schema/mule/http/body-to-parameter-map-transformer" name="Body to Parameter Map" entity-id="e2c37cc6-eab2-45d9-aca0-1439de7e388d">
+    <global-element type="http://www.mulesoft.org/schema/mule/http/body-to-parameter-map-transformer" name="Body to Parameter Map" entity-id="f9dc485d-c8b6-459d-8589-a02c75b23afc">
         <properties>
             <property name="returnClass"/>
             <property name="ignoreBadInput"/>
@@ -9,7 +9,7 @@
             <property value="Body_to_Parameter_Map" name="name"/>
         </properties>
     </global-element>
-    <global-element type="http://www.mulesoft.org/schema/mule/core/object-to-string-transformer" name="Object to String" entity-id="29d70d9f-1f5b-4b9b-8313-a4fa8e9ec6f2">
+    <global-element type="http://www.mulesoft.org/schema/mule/core/object-to-string-transformer" name="Object to String" entity-id="e92cacc9-25d2-4fff-96e0-8ca7ff34a78c">
         <properties>
             <property name="returnClass"/>
             <property name="ignoreBadInput"/>
@@ -18,7 +18,7 @@
             <property value="Object_to_String" name="name"/>
         </properties>
     </global-element>
-    <global-element type="org.mule.tooling.ui.modules.core.global.httpsConnector" name="HTTPS-connector" entity-id="b8e2a2ee-181d-49a9-b850-023257fb27dd">
+    <global-element type="org.mule.tooling.ui.modules.core.global.httpsConnector" name="HTTPS-connector" entity-id="f85a0325-d5bd-4e70-a687-232b3aa227cd">
         <properties>
             <property value="HTTPS-connector" name="name"/>
             <property name="enableCookies"/>
@@ -66,7 +66,7 @@
             <property name="proxyPassword"/>
             <property-collection name="@http://www.mulesoft.org/schema/mule/https/tls-client;0">
                 <property value="MuleSoft1" name="storePassword"/>
-                <property value="keystore.jks" name="path"/>
+                <property value="${app.home}/truststore" name="path"/>
             </property-collection>
             <property-collection name="@http://www.mulesoft.org/schema/mule/https/tls-key-store;0">
                 <property value="MuleSoft1" name="storePassword"/>
@@ -79,7 +79,7 @@
             </property-collection>
             <property-collection name="@http://www.mulesoft.org/schema/mule/https/tls-client;0">
                 <property value="MuleSoft1" name="storePassword"/>
-                <property value="keystore.jks" name="path"/>
+                <property value="${app.home}/truststore" name="path"/>
             </property-collection>
             <property-collection name="@http://www.mulesoft.org/schema/mule/https/tls-key-store;0">
                 <property value="MuleSoft1" name="storePassword"/>
@@ -99,8 +99,8 @@
             <property name="bussinessEventsLabel"/>
             <property name="tracking:enable-default-events"/>
         </properties>
-        <lane hadOnlyOneElement="false" entity-id="9cbd079c-bac3-4dc1-b81c-55d18efb769c">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP-Inbound" entity-id="71562350-255f-4d0b-b86c-1deaefad283c">
+        <lane hadOnlyOneElement="false" entity-id="22494402-c58e-4d88-81f9-5cc86ea3c6fe">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP-Inbound" entity-id="71314084-35f5-483e-9d91-1c628dc5b405">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
@@ -152,21 +152,21 @@
                     <property name="keep-alive"/>
                 </properties>
             </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Message" entity-id="fbd77995-94ab-412e-8c5a-42657678f340">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Message" entity-id="794c687d-9ce4-4c6a-8bf9-edc7e8a113dc">
                 <properties>
                     <property name="message"/>
                     <property value="INFO" name="level"/>
                     <property name="category"/>
                 </properties>
             </pattern>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Payload" entity-id="9c79db5c-cec4-4c78-9a25-cc6a4927efe2">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Payload" entity-id="01861b06-a637-4e90-ba42-f0be460842a1">
                 <properties>
                     <property value="PAYLOAD: #[payload]" name="message"/>
                     <property value="INFO" name="level"/>
                     <property name="category"/>
                 </properties>
             </pattern>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Return" entity-id="9d1ff724-a1ec-4e0d-a831-dd7158e54412">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/expression-transformer" name="Return" entity-id="55781640-c7ec-410b-825c-25f32ae83bda">
                 <properties>
                     <property name="returnClass"/>
                     <property name="ignoreBadInput"/>
